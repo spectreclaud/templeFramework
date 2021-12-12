@@ -27,7 +27,8 @@ public class BaseTest {
 
     @BeforeTest
     public void beforeTestMethod() {
-        htmlReporter = new ExtentHtmlReporter(System.getProperty("C:\\Users\\dellf\\Downloads\\templeFramework\\reports"));
+        htmlReporter = new ExtentHtmlReporter(System.getProperty("C:\\Users\\dellf\\Downloads\\templeFramework\\reports"
+                + "AutomationReport.html"));
         htmlReporter.config().setEncoding("utf-8");
         htmlReporter.config().setDocumentTitle("Dowolny tytuł dla dokumentu");
         htmlReporter.config().setReportName("Dowolna nazwa dla raportu");
