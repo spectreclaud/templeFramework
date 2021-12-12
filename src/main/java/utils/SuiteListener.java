@@ -1,8 +1,9 @@
 package main.java.utils;
 
-import org.apache.commons.io.FileUtils;
+
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.io.FileHandler;
 import org.testng.IAnnotationTransformer;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
@@ -32,7 +33,7 @@ public class SuiteListener implements ITestListener, IAnnotationTransformer {
                 + iTestResult.getMethod().getMethodName());
         File f = ((TakesScreenshot) BaseTest.driver).getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(f , new File(fileName + ".png"));
+            FileHandler.copy(f , new File(fileName + ".png"));
         } catch (IOException e) {
             e.printStackTrace();
         }

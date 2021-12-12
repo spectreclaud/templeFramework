@@ -1,5 +1,6 @@
 package test.java;
 
+
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -27,8 +28,7 @@ public class BaseTest {
 
     @BeforeTest
     public void beforeTestMethod() {
-        htmlReporter = new ExtentHtmlReporter(System.getProperty("C:\\Users\\dellf\\Downloads\\templeFramework\\reports"
-                + "AutomationReport.html"));
+        htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/reports/AutomationReport.html");
         htmlReporter.config().setEncoding("utf-8");
         htmlReporter.config().setDocumentTitle("Dowolny tytuł dla dokumentu");
         htmlReporter.config().setReportName("Dowolna nazwa dla raportu");
@@ -75,13 +75,13 @@ public class BaseTest {
 
     public void setupDriver(String browserName) {
         if (browserName.equalsIgnoreCase("chrome")) {
-            System.setProperty("webdriver.chrome.driver", System.getProperty("C:\\Users\\dellf\\Downloads\\templeFramework\\drivers\\chromedriver.exe"));
+            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/drivers/chromedriver.exe");
             driver = new ChromeDriver();
         }else if (browserName.equalsIgnoreCase("firefox")) {
-            System.setProperty("webdriver.gecko.driver", System.getProperty("C:\\Users\\dellf\\Downloads\\templeFramework\\drivers\\geckodriver.exe"));
+            System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/drivers/geckodriver.exe");
             driver = new FirefoxDriver();
         }else {
-            System.setProperty("webdriver.chrome.driver", System.getProperty("C:\\Users\\dellf\\Downloads\\templeFramework\\drivers\\chromedriver.exe"));
+            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/drivers/chromedriver.exe");
             driver = new ChromeDriver();
         }
     }
